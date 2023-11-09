@@ -6,14 +6,14 @@ import {useEffect, useState} from "react";
 const Layout = ({ children }) => {
 
 
-    const [isLogin, setLogin] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if(!isLogin) {
-            navigate('/login')
-        }
-    }, [isLogin]);
+    // const [isLogin, setLogin] = useState(false);
+    // const navigate = useNavigate();
+    //
+    // useEffect(() => {
+    //     if(!isLogin) {
+    //         navigate('/login')
+    //     }
+    // }, [isLogin]);
 
 
     return (
