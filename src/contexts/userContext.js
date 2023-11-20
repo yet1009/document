@@ -6,9 +6,6 @@ export const UserContext = createContext()
 
 const UserInfoContext = () => {
 
-
-
-
     return (
         <UserContext.Provider value={[]}>
 

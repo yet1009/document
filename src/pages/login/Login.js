@@ -1,42 +1,44 @@
 import {create} from 'zustand';
-import useNumStore from "../../store/zustandStore";
 import {useRecoilState} from "recoil";
-import {nameState} from "../../store/recoilState";
 import {userIdState, userPwState} from "../../states/userIdStore";
+import {useForm} from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from 'yup'
+
+import { styled } from "styled-components";
+import Input from "../../components/form/Input";
+
+const LoginWrap = styled.div`
+    
+`
+
 
 const Login = () => {
 
-    const [userId, setUserId] = useRecoilState(userIdState)
-    const [userPw, setUserPw] = useRecoilState(userPwState);
+    const { handleSubmit, register, formState: { errors }} = useForm()
 
+    const onSubmit = data => {
+        console.log(data)
+        JSON.stringify(data)
+    }
 
     return (
-        <div className='login_wrap'>
+        <LoginWrap className='login_wrap'>
+            <form className='login_form' onSubmit={handleSubmit(onSubmit)}>
 
-            <label>
-                <span>아이디</span>
-                <input
-                    type='text'
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
+                <Input
+                    {...register('email', {
+                    required: true,
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: 'Invalid email address',
+                        }
+                    })}
                 />
-            </label>
 
-            <label>
-                <span>비밀번호</span>
-                <input
-                    type='password'
-                    value={userPw}
-                    onChange={(e) => setUserPw(e.target.value)}
-                />
-            </label>
-
-            <button
-                type='button'
-                onClick={() => {}}
-            >로그인
-            </button>
-        </div>
+                {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
+            </form>
+        </LoginWrap>
     )
 }
 
