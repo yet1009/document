@@ -24,8 +24,6 @@ const InputWrap = styled.div`
 const Input = (props) => {
 
     // let { text, ...rest} = props
-    console.log(props)
-
 
     return (
         <InputWrap>
