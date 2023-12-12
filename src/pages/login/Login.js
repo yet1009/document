@@ -9,6 +9,7 @@ import { styled } from "styled-components";
 import Input from "../../components/form/Input";
 import {useCallback, useEffect, useMemo, useReducer, useState} from "react";
 import Lists from "../../components/etc/Lists";
+import Counter from "../../components/etc/Counter";
 
 const LoginWrap = styled.div`
 `
@@ -42,7 +43,6 @@ function reducer(state,action) {
             return {...state}
     }
 
-
 }
 
 
@@ -67,9 +67,6 @@ const Login = () => {
 
 
 
-
-
-
     return (
         <LoginWrap className='login_wrap'>
             <h2>Login</h2>
@@ -79,7 +76,8 @@ const Login = () => {
             <input type='text' value={state['id']} onChange={(e) => dispatch({ type: 'id', payload: e.target.value })} />
             <input type='password' value={state['pw']} onChange={(e) => dispatch({ type: 'pw', payload: e.target.value }) } />
             <button className='btn' type='button' onClick={sendData}>확인</button>
-            <Lists lists={lists} />
+            <Lists lists={lists} setList={setList} />
+            <Counter />
         </LoginWrap>
     )
 }
