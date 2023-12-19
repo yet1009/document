@@ -25,7 +25,7 @@ const Lists = ({ lists, setList }) => {
             <ul>
                 {
                     lists?.map((item, idx) => (
-                        <li key={`list__${idx}`}>
+                        <li key={`list__${idx}`} className={'flex'}>
                             <p>id: {item['id']}</p>
                             <p>pw: {item['pw']}</p>
                             <p>

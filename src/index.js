@@ -8,6 +8,8 @@ import {RecoilRoot} from "recoil";
 import {Reset} from "styled-reset";
 
 
+import './assets/style/ui_reset.css'
+
 const $root = document.getElementById('root')
 const root = ReactDOM.createRoot($root);
 
