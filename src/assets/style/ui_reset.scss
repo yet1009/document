@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@import 'ui_components';
+@import 'ui_main';
+@import 'ui_helper';

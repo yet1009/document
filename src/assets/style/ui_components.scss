@@ -1,0 +1,35 @@
+input {
+  border: 0;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.ipt {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #adadad;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: #000 !important;
+  }
+}
+
+.ipt_box {
+  display: inline-block;
+  input:focus {
+    border-color: #000;
+  }
+}
+
+
+.btn {
+  width: 100%;
+  min-height: 60px;
+}
+

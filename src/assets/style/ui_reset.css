@@ -1,5 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input {
+  border: 0;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.ipt {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #adadad;
+  border-radius: 4px;
+}
+.ipt:focus {
+  border-color: #000 !important;
+}
+
+.ipt_box {
+  display: inline-block;
+}
+.ipt_box input:focus {
+  border-color: #000;
+}
+
+.btn {
+  width: 100%;
+  min-height: 60px;
+}
+
+.root {
+  position: relative;
+}
+
+.login_wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ty_black {
+  @apply bg-black text-white rounded-md;
+}
 
 /*# sourceMappingURL=ui_reset.css.map */

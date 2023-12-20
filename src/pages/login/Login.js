@@ -1,17 +1,47 @@
-import {create} from 'zustand';
-import {useRecoilState} from "recoil";
-import {userIdState, userPwState} from "../../states/userIdStore";
-import {useForm} from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup'
+import {styled} from "styled-components";
+import {useReducer, useState} from "react";
+import {Formik} from "formik";
+import {useNavigate} from "react-router-dom";
 
-import { styled } from "styled-components";
-import Input from "../../components/form/Input";
-import {useCallback, useEffect, useMemo, useReducer, useState} from "react";
-import Lists from "../../components/etc/Lists";
-import Counter from "../../components/etc/Counter";
+const LoginWrap = styled.form`
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+  }
 
-const LoginWrap = styled.div`
+  .ipt_box {
+    min-width: 450px;
+
+    & + .ipt_box {
+      margin-top: 16px;
+    }
+
+  }
+
+  .btn_box {
+    margin-top: 40px;
+    min-width: 450px;
+  }
+
+  .create {
+    padding: 32px 0 80px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+
+    button {
+      font-weight: 600;
+
+      &:hover,
+      &:focus {
+        color: #5473E2;
+        font-weight: 600;
+      }
+    }
+  }
+
+
 `
 
 const initialState = {
@@ -19,13 +49,12 @@ const initialState = {
     pw: ''
 }
 
-function reducer(state,action) {
-
-    switch(action.type) {
+function reducer(state, action) {
+    switch (action.type) {
         case 'id':
         case 'pw':
-            for(let key in state) {
-                if(key === action.type) {
+            for (let key in state) {
+                if (key === action.type) {
                     state[key] = action.payload
                     return {...state}
                 }
@@ -42,43 +71,86 @@ function reducer(state,action) {
         default:
             return {...state}
     }
-
 }
 
 
 const Login = () => {
 
-    // const { handleSubmit, register, formState: { errors }} = useForm()
-
     const [state, dispatch] = useReducer(reducer, initialState)
     const [lists, setList] = useState([])
 
+    const navigate = useNavigate()
+
     function sendData() {
         const empty = Object.values(state).includes('')
-        if(empty) return
+        if (empty) return
 
         setList(prev => ([
             ...prev,
             state
         ]))
 
-        dispatch({ type: 'del' })
+        dispatch({type: 'del'})
     }
 
 
-
     return (
-        <LoginWrap className='login_wrap'>
-            <h2>Login</h2>
-            {/*<form className='login_form' onSubmit={handleSubmit(onSubmit)}>*/}
-            {/*    */}
-            {/*</form>*/}
-            <input type='text' value={state['id']} onChange={(e) => dispatch({ type: 'id', payload: e.target.value })} />
-            <input type='password' value={state['pw']} onChange={(e) => dispatch({ type: 'pw', payload: e.target.value }) } />
-            <button className='btn' type='button' onClick={sendData}>확인</button>
-            <Lists lists={lists} setList={setList} />
-            <Counter />
-        </LoginWrap>
+        <div className='login_wrapper'>
+            <Formik
+                initialValues={state}
+                validate={values => {
+                    console.log(values)
+                }}
+                onSubmit={() => {
+                }}>
+                {
+                    ({
+                         values,
+                         errors,
+                         handleChange,
+                         handleSubmit,
+                     }) => (
+                        <LoginWrap className='login__inner'>
+                            <h2>Sign in</h2>
+                            <div className='create'>
+                                If you don't have an account register <br/>
+                                You can <button
+                                    type='button'
+                                    onClick={() => {
+                                        navigate('/signup', { replace: true })
+                                    }}
+                            >Create an account</button>
+                            </div>
+                            <div className='ipt_box'>
+                                <input
+                                    type='text'
+                                    value={state['id']}
+                                    placeholder='ID'
+                                    className='ipt'
+                                    onChange={(e) => dispatch({type: 'id', payload: e.target.value})}/>
+                            </div>
+                            <div className='ipt_box'>
+                                <input
+                                    type='password'
+                                    value={state['pw']}
+                                    placeholder='Password'
+                                    className='ipt'
+                                    onChange={(e) => dispatch({type: 'pw', payload: e.target.value})}/>
+                            </div>
+                            <div className='btn_box'>
+                                <button
+                                    className='btn ty_black'
+                                    type='button'
+                                    onClick={sendData}
+                                >확인</button>
+                            </div>
+                        </LoginWrap>
+
+                    )
+                }
+            </Formik>
+
+        </div>
     )
 }
 

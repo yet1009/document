@@ -4,7 +4,10 @@ import {lazy} from "react";
 
 
 const Layout = Loadable(lazy(() => import('../pages/layout/Layout')));
+
+
 const Login = Loadable(lazy(() => import('../pages/login/Login')));
+const SignUp = Loadable(lazy(() => import('../pages/login/SignUp')))
 
 export const defaultRoutes = [
     {
@@ -38,5 +41,9 @@ export const defaultRoutes = [
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/signup',
+        element: <SignUp />
     }
 ]
