@@ -1,3 +1,6 @@
+$errors: rgba(88, 21, 28, 1);
+
+
 input {
   border: 0;
   outline: 0;
@@ -12,11 +15,11 @@ button {
   min-height: 42px;
   box-sizing: border-box;
   padding: 20px;
-  border: 2px solid #adadad;
+  border: 1px solid #adadad;
   border-radius: 4px;
 
   &:focus {
-    border-color: #000 !important;
+    border: 2px solid #000 !important;
   }
 }
 
@@ -32,4 +35,5 @@ button {
   width: 100%;
   min-height: 60px;
 }
+
 

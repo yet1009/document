@@ -31,8 +31,6 @@ const SignUp = () => {
         let checkReg = testRegText(values['pw']) && testRegText(values['confirmPw']);
         let idReg = testIdReg(values['id']);
 
-
-
         if (values['confirmPw'] !== values['pw']) {
             errors.confirmPw = '비밀번호가 일치 하지 않습니다.'
         }
@@ -75,7 +73,6 @@ const SignUp = () => {
                          errors,
                          handleChange,
                          touched,
-                         isSubmitting
                      }) => (
                          <Form className='signup__inner'>
                              <h2>Sign Up</h2>
@@ -85,6 +82,10 @@ const SignUp = () => {
                                  navigate('/login', {replace: true})
                              }}>proceed to log in.</button>
                              </div>
+
+                             {errors.id && touched.id ? (<div className='error_box'><p className='error_box--text'>{errors.id}</p></div>) : null}
+                             {errors.pw && touched.pw ? (<div className='error_box'><p className='error_box--text'>{errors.pw}</p></div>) : null}
+                             {errors.confirmPw && touched.confirmPw ? (<div className='error_box'><p className='error_box--text'>{errors.confirmPw}</p></div>) : null}
                              <div className='ipt_box'>
                                  <input
                                      type='text'
@@ -94,7 +95,7 @@ const SignUp = () => {
                                      className='ipt'
                                      onChange={handleChange}
                                  />
-                                 {errors.id && touched.id ? (<div>{errors.id}</div>) : null}
+
                              </div>
                              <div className='ipt_box'>
                                  <input
@@ -105,7 +106,7 @@ const SignUp = () => {
                                      className='ipt'
                                      onChange={handleChange}
                                  />
-                                 {errors.pw && touched.pw ? (<div>{errors.pw}</div>) : null}
+
                              </div>
                              <div className='ipt_box'>
                                  <input
@@ -116,7 +117,7 @@ const SignUp = () => {
                                      className='ipt'
                                      onChange={handleChange}
                                  />
-                                 {errors.confirmPw && touched.confirmPw ? (<div>{errors.confirmPw}</div>) : null}
+
                              </div>
                              <div className='btn_box'>
                                  <button
