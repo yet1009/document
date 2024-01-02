@@ -11,7 +11,8 @@ const LoginWrap = styled.form`
   }
 
   .ipt_box {
-    min-width: 450px;
+    _min-width: 450px;
+    width: 100%;
 
     & + .ipt_box {
       margin-top: 16px;
@@ -40,8 +41,6 @@ const LoginWrap = styled.form`
       }
     }
   }
-
-
 `
 
 const initialState = {
@@ -101,8 +100,8 @@ const Login = () => {
                 validate={values => {
                     console.log(values)
                 }}
-                onSubmit={() => {
-                }}>
+                onSubmit={() => {}}
+            >
                 {
                     ({
                          values,
@@ -111,7 +110,7 @@ const Login = () => {
                          handleSubmit,
                      }) => (
                         <LoginWrap className='login__inner'>
-                            <h2>Sign in</h2>
+                            <h2>Login</h2>
                             <div className='create'>
                                 If you don't have an account register <br/>
                                 You can <button
