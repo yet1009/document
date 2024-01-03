@@ -9,11 +9,11 @@ const App = () => {
     const navigate = useNavigate()
 
 
-    useEffect(() => {
-        if(!isLogin) {
-            navigate('/login', { replace: true})
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(!isLogin) {
+    //         navigate('/login', { replace: true})
+    //     }
+    // }, []);
 
 
     return (

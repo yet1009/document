@@ -1,5 +1,6 @@
 import {Form, Formik} from "formik";
 import {useNavigate} from "react-router-dom";
+import Input from "../../components/form/Input";
 
 
 //특수 기호있는지 확인
@@ -87,7 +88,15 @@ const SignUp = () => {
                              {errors.pw && touched.pw ? (<div className='error_box'><p className='error_box--text'>{errors.pw}</p></div>) : null}
                              {errors.confirmPw && touched.confirmPw ? (<div className='error_box'><p className='error_box--text'>{errors.confirmPw}</p></div>) : null}
                              <div className='ipt_box'>
-                                 <input
+                                 {/*<input*/}
+                                 {/*    type='text'*/}
+                                 {/*    value={values['id']}*/}
+                                 {/*    name='id'*/}
+                                 {/*    placeholder='ID(영문,숫자 조합)'*/}
+                                 {/*    className='ipt'*/}
+                                 {/*    onChange={handleChange}*/}
+                                 {/*/>*/}
+                                 <Input
                                      type='text'
                                      value={values['id']}
                                      name='id'
@@ -98,7 +107,15 @@ const SignUp = () => {
 
                              </div>
                              <div className='ipt_box'>
-                                 <input
+                                 {/*<input*/}
+                                 {/*    type='password'*/}
+                                 {/*    name='pw'*/}
+                                 {/*    value={values['pw']}*/}
+                                 {/*    placeholder='Password(영문, 숫자, 특수 문자 포함 8 ~ 16자)'*/}
+                                 {/*    className='ipt'*/}
+                                 {/*    onChange={handleChange}*/}
+                                 {/*/>*/}
+                                 <Input
                                      type='password'
                                      name='pw'
                                      value={values['pw']}
@@ -109,7 +126,7 @@ const SignUp = () => {
 
                              </div>
                              <div className='ipt_box'>
-                                 <input
+                                 <Input
                                      type='password'
                                      value={values['confirmPw']}
                                      name='confirmPw'
@@ -117,6 +134,14 @@ const SignUp = () => {
                                      className='ipt'
                                      onChange={handleChange}
                                  />
+                                 {/*<input*/}
+                                 {/*    type='password'*/}
+                                 {/*    value={values['confirmPw']}*/}
+                                 {/*    name='confirmPw'*/}
+                                 {/*    placeholder='비밀번호 일치여부확인'*/}
+                                 {/*    className='ipt'*/}
+                                 {/*    onChange={handleChange}*/}
+                                 {/*/>*/}
 
                              </div>
                              <div className='btn_box'>
