@@ -1,13 +1,13 @@
-import {Test1, Test2, Test3, Test4, Test5} from "./component";
+import {Blog, Detail} from "./component";
 import Loadable from "../components/Loadable/Loadable";
 import {lazy} from "react";
 
 
-const Layout = Loadable(lazy(() => import('../pages/layout/Layout')));
+//layout
+const Layout = Loadable(lazy(() => import('@pages/layout/Layout')));
+const Login = Loadable(lazy(() => import('@pages/login/Login')));
+const SignUp = Loadable(lazy(() => import('@pages/login/SignUp')))
 
-
-const Login = Loadable(lazy(() => import('../pages/login/Login')));
-const SignUp = Loadable(lazy(() => import('../pages/login/SignUp')))
 
 export const defaultRoutes = [
     {
@@ -15,27 +15,15 @@ export const defaultRoutes = [
         element: <Layout />,
         children: [
             {
-                path: 'test',
-                element: <Test1 />,
+                path: 'blog',
+                element: <Blog />,
                 children: [
                     {
                         path: ':id',
-                        element: <Test4 />
+                        element: <Detail />,
                     },
-                    {
-                        path: 'depth',
-                        element: <Test5 />
-                    }
                 ]
             },
-            {
-                path: 'test1',
-                element: <Test2 />,
-            },
-            {
-                path: 'test2',
-                element: <Test3 />,
-            }
         ]
     },
     {
@@ -46,4 +34,11 @@ export const defaultRoutes = [
         path: '/signup',
         element: <SignUp />
     }
+]
+
+
+export const pathLists = [
+    {path: '/'},
+    {path: '/blog', name: '이모저모', inner: {}},
+    {path: '/settings', name: 'Setting', inner: {}},
 ]

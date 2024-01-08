@@ -1,5 +1,21 @@
 $errors: rgba(88, 21, 28, 1);
+@mixin buttonInit() {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
 
+@mixin positionAbs($left, $top) {
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+
+$my-variable: 42;
+
+@debug $my-variable;
 
 input {
   border: 0;
@@ -7,7 +23,7 @@ input {
 }
 
 button {
-  cursor: pointer;
+ @include buttonInit();
 }
 
 .ipt {
@@ -36,4 +52,8 @@ button {
   min-height: 60px;
 }
 
+
+.d {
+  @include positionAbs(10px, 30px)
+}
 

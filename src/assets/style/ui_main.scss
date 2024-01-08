@@ -1,7 +1,16 @@
-
+html,body{
+  height: 100%;
+}
 
 .root {
   position: relative;
+  height: 100%;
+
+  background-color: red;
+}
+
+#root {
+  height: 100%;
 }
 
 .login_wrapper, .signup_wrapper {

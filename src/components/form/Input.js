@@ -28,7 +28,6 @@ const InputWrap = styled.div`
 
 
 const Input = (props) => {
-    // console.log({props})
     return (
         <InputWrap>
             {props.label && <label htmlFor={props.name}>{props.label}</label>}

@@ -1,6 +1,8 @@
 const Test2 = () => {
     return (
-        <div>
+        <div style={{
+            paddingLeft: '100px'
+        }}>
             test2
         </div>
     );

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/341.e30e82c2.chunk.js","mappings":"6IAAA,MAQA,EARcA,KAENC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,S","sources":["pages/test/Test2.js"],"sourcesContent":["const Test2 = () => {\n    return (\n        <div>\n            test2\n        </div>\n    );\n};\n\nexport default Test2;\n"],"names":["Test2","_jsx","children"],"sourceRoot":""}

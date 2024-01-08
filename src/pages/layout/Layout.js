@@ -1,10 +1,15 @@
 import Header from "./header";
 import Sidebar from "./sidebar";
 import {Outlet, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useState} from "react";
+
+import classNames from "classnames/bind";
+import styles from './layout.module.scss';
+
+
+const cx = classNames.bind(styles);
 
 const Layout = ({ children }) => {
-
 
     const [isLogin, setLogin] = useState(false);
     const navigate = useNavigate();
@@ -15,9 +20,8 @@ const Layout = ({ children }) => {
     //     }
     // }, [isLogin]);
 
-
     return (
-        <div className='layout'>
+        <div className={cx('layout')}>
             <Header />
             <Sidebar />
             {children}
