@@ -38,7 +38,14 @@ export const defaultRoutes = [
 
 
 export const pathLists = [
-    {path: '/'},
-    {path: '/blog', name: '이모저모', inner: {}},
-    {path: '/settings', name: 'Setting', inner: {}},
+    {
+        path: '/blog',
+        title: 'Blog',
+        depth: {}
+    },
+    {
+        path: '/setting',
+        title: 'Settings',
+        depth: {},
+    }
 ]

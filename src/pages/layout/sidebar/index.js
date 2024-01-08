@@ -12,7 +12,19 @@ function NavBarList() {
     console.log(pathLists)
 
     return (
-        <></>
+        <ul>
+            {
+                pathLists.map((item, idx) => {
+                    let { path, title } = item;
+
+                    return (
+                        <li>
+                            <NavLink to={path}>{title}</NavLink>
+                        </li>
+                    )
+                })
+            }
+        </ul>
     )
 
 }
