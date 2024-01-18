@@ -24,8 +24,12 @@ const Layout = ({ children }) => {
         <div className={cx('layout')}>
             <Header />
             <Sidebar />
-            {children}
-            <Outlet />
+            <div className='container'>
+                <div className='contents'>
+                    {children}
+                    <Outlet />
+                </div>
+            </div>
         </div>
     )
 }

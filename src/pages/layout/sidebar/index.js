@@ -2,7 +2,7 @@
 import classNames from "classnames/bind";
 import styles from './sidebar.module.scss'
 import {useMemo, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {defaultRoutes, pathLists} from "@/routers/routes";
 
 const cx = classNames.bind(styles)
